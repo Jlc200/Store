@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+ <!-- SCRIPT -->
+ <script src="js/popper.min.js"></script>
+<script src="https://kit.fontawesome.com/766bfae005.js" crossorigin="anonymous"></script> 
+ <!-- CSS-->
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="css/sweetalert2.min.css">
+ 
+ <link rel="stylesheet" href="css/bootstrap.min.css">
+ <link rel="stylesheet" href="css/estilo.css">
+ 
+ <!-- título -->
+ <title>JlcStore</title>
+ <link rel="shortcut icon" href="img/cart.png" type="image/x-icon">
+ 
+ <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="search" fill="#ffffff" viewBox="0 0 16 16">
+    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+  </symbol></svg>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="film" viewBox="0 0 16 16">
+    <path d="M0 1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1zm4 0v6h8V1H4zm8 8H4v6h8V9zM1 1v2h2V1H1zm2 3H1v2h2V4zM1 7v2h2V7H1zm2 3H1v2h2v-2zm-2 3v2h2v-2H1zM15 1h-2v2h2V1zm-2 3v2h2V4h-2zm2 3h-2v2h2V7zm-2 3v2h2v-2h-2zm2 3h-2v2h2v-2z"/>
+  </symbol>
+
+  <symbol id="trash" fill="#ff0a00" viewBox="0 0 16 16">
+    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+    <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+  </symbol>
+  <symbol id="cart" fill="#ffffff" viewBox="0 0 16 16">
+    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+  </symbol>
+  <symbol id="file-earmark" viewBox="0 0 16 16">
+    <path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
+    <path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"/>
+  </symbol>
+  
+</svg>
+</head>
+<body class="bg-dark">
+ <header>
+ <nav class="navbar navbar-expand-lg bg-color navbar-dark fixed-top">
+  <div class="container-fluid">
+   
+   <div class="">
+ <div class="m-4 mb-0 mt-0">
+     <img src="https://cdn-icons-png.flaticon.com/512/862/862072.png" height="20px" width="20px" alt="Logo"></div>
+       <h6><strong class="txt-white ntxt">JlcStore</strong></h6>
+    </div>   
+    
+       <div class="border lcolo rounded-1 border-light-subtle">
+      <img src="https://siamangtec.files.wordpress.com/2022/08/tiendaonline-3.png" alt="CARRITO" width="40" height="40" type="button" data-bs-toggle="offcanvas" data-bs-target="#compras" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      </div>
+      
+      <button class="navbar-toggler text-white" style="border:none;
+type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><svg class="bi" width="25" height="25"><use xlink:href="#search"/></svg></button>
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      
+       <form class=" br d-flex mt-1 mb-2" role="search">
+            <input class="form-control text-center me-1" id="filterInput" type="text" placeholder="BUSCAR..." aria-label="Search" style="font-weight: bold;">
+          </form>
+  </div>
+   <div class="nav-scroller bg-light rounded-2 shadow-sm collapse navbar-collapse" id="navbarSupportedContent">
+  <nav class="nav" aria-label="Secondary navigation">
+    <a class="nav-link ftxt fv" aria-current="page" href="#" data-filter="all">TODOS</a>
+    <a class="nav-link ftxt fv" href="#" data-filter="abarrotes" >ABARROTES</a>
+      <a class="nav-link ftxt fv" href="#" data-filter="lacteos" >LÁCTEOS</a>
+         <a class="nav-link ftxt fv" href="#" data-filter="bebidas" >BEBIDAS</a>
+         <a class="nav-link ftxt fv" href="#" data-filter="frutas" >FRUTAS</a>
+            <a class="nav-link ftxt fv" href="#" data-filter="verduras" >VERDURAS</a>
+               <a class="nav-link ftxt fv" href="#" data-filter="carnes" >CARNES</a>
+                  <a class="nav-link ftxt fv" href="#" data-filter="higene" >CUIDADO PERSONAL</a>
+                    <a class="nav-link ftxt fv" href="#" data-filter="limpieza" >LIMPIEZA</a> 
+  </nav>
+</div>
+</nav>
+ </header>
+ 
+ <!-- Compra -->
+<nav class="navbar bg-body-tertiary">
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="compras" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Productos en carrito</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body" id="carrito">
+        
+                                    <table id="lista-carrito" class= "table">
+       
+ <thead>
+                                            <tr>     
+                                                <th>Imagen</th>
+                                                <th>Nombre</th>
+                                                <th>Precio</th>
+                                                <th>Quitar</th>
+                                            </tr> 
+                                            </thead> 
+
+     <tbody></tbody> 
+     
+     </table>
+   <div class="d-grid gap-2">
+   <a href="#" id="vaciar-carrito" class="btn btn-outline-danger">Vaciar Carrito</a>
+   
+   <a href="#" id="procesar-pedido" class="btn btn-outline-success">Enviar Compra</a>    
+   
+   <a href="#" data-bs-dismiss="offcanvas" aria-label="Close" class="btn btn-outline-warning">Seguir Comprando</a>    
+   </div>
+
+    </div>
+</nav>
+  <!-- Fin compra-->    
+<main class="bg-light mt-1">
+    
+<!-- Slider -->
+<section class="mt-2">
+ <div class="pt-5 container">
+     
+  <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+    <div class="carousel-indicators" id="idicat">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    </div>
+    <!-- inner -->
+    <div class="carousel-inner" id="slide">
+      
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" id="carousel-control-prev-icono" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" id="carousel-control-next-icono" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+</div>
+
+<!-- second -->
+
+
+</section><!-- Fin slider -->
+
+<!-- Catálogo -->
+<!-- <div class="text-center mx-auto py-1">
+            <h6>CATÁLOGO</h6>
+            <p class="mx-4" style="color: gray;">Selecciona uno de nuestros productos para realizar tu pedido.</p>
+        </div> -->
+        
+       <div class="catalogo" id="contenedor-productos">
+    </div><!-- fin catalogo -->
+   </main>
+    <!-- Footer -->
+<div class="container text-light">
+  <footer class="py-5">
+    <div class="row justify-content-center">
+      <div class="col-6 col-md-2 mb-3">
+        <h5 class="bg-blus">Nosotros</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-0"><h6 class="nav-link p-0 SbTxC" data-bs-toggle="modal" data-bs-target="#covertura">Zona de covertura</h6></li>
+          
+          <li class="nav-item mb-0"><h6 class="nav-link p-0 SbTxC" data-bs-toggle="modal" data-bs-target="#devolucion">Cambios y devoluciónes</h6></li>
+          
+          <li class="nav-item mb-0"><h6 class="nav-link p-0 SbTxC" data-bs-toggle="modal" data-bs-target="#privacidad">Política de privacidad</h6></li>
+          
+          <li class="nav-item mb-0"><h6 class="nav-link p-0 SbTxC" data-bs-toggle="modal" data-bs-target="#condiciones">Términos y condiciones</h6></li>
+          
+          <li class="nav-item mb-0"><h6 class="nav-link p-0 SbTxC" data-bs-toggle="modal" data-bs-target="#sobreNosotros">Acerca de nosotros</h6></li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-md-2 mb-3">
+        <h5 class="bg-blus">Contactanos</h5>
+        <ul class="nav flex-column">
+          <li class="SbTxC">jr. S/N</li>
+          <li class="SbTxC">Paucapata, El Carmen, Churcampa</li>
+          <li class="SbTxC">Cel: 931993482</li>
+          <li class="SbTxC">jlcstore@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center pt-4 mt-4 border-top">
+     <ul class="list-unstyled d-flex">       
+        <li class="ms-3"><a class="link-body-emphasis" href="#" data-bs-toggle="modal" data-bs-target="#tutorials"><img class="bi"src="https://videonot.es/wp-content/uploads/2021/11/clicdata_support-help-center-header.png" alt="AYUDA"  width="38" height="38"></a></li>
+        
+        <li class="ms-3"><a class="link-body-emphasis" href="http://api.whatsapp.com/send?phone=51931993482&text= "><img class="bi"src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png" alt="WhatsApp"  width="38" height="38"></a></li>
+        
+        <li class="ms-3 me-3"><a class="link-body-emphasis" href="#"><img class="bi"src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/220px-2021_Facebook_icon.svg.png" alt="Facebook"  width="38" height="38"></a></li>        
+      </ul>
+     
+      <p class="text-center">&copy; 2020-2024 JlcStore, Todos los derechos reservados.</p>      
+    </div>
+  </footer>
+  
+  <!-- Footer info text -->
+   <section class="text-dark">
+<!-- Tutorial -->
+<div class="modal fade" id="tutorials" tabindex="-1" aria-labelledby="tutorials" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">AYUDA</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       
+       <div class="b-example-divider"></div>
+
+  <ul class="dropdown-menu d-block position-static mx-0 shadow w-220px" data-bs-theme="light">
+    <li>
+      <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
+        <svg class="bi" width="16" height="16"><use xlink:href="#film"/></svg>
+        Comprar productos
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
+        <svg class="bi" width="16" height="16"><use xlink:href="#film"/></svg>
+        Solicitar Recarga
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
+        <svg class="bi" width="16" height="16"><use xlink:href="#film"/></svg>
+        Solicitar pago de servicios
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
+        <svg class="bi" width="16" height="16"><use xlink:href="#file-earmark"/></svg>
+        Actualizacion de la aplicación
+      </a>
+    </li>
+  </ul>
+  
+  
+       
+         </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- zona de covertura-->
+<div class="modal fade" id="covertura" tabindex="-1" aria-labelledby="covertura" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">ZONA DE COVERTURA</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       <iframe src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d1252.9216850522307!2d-74.50418917626591!3d-12.754666180620925!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTLCsDQ1JzE0LjEiUyA3NMKwMzAnMTUuMyJX!5e1!3m2!1ses!2spe!4v1702777230696!5m2!1ses!2spe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+         </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Sobre Nosotros-->
+<div class="modal fade" id="sobreNosotros" tabindex="-1" aria-labelledby="sobreNosotros" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">SOBRE NOSOTROS </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+         <p>Hola, bienvenido a JlcStore, el lugar perfecto para encontrar los mejores productos para el hogar. Verificamos minuciosamente la calidad de nuestros productos, trabajando sólo con proveedores confiables para ofrecerte un producto de la mejor calidad.</p>
+   
+   <p>En JlcStore contamos con los más altos estándares de calidad y servicio al cliente. Pero lo más importante es que creemos que comprar no es un lujo, sino una necesidad, por lo que nos esforzamos en brindarte los mejores productos a los precios más accesibles, y te los enviamos sin importar dónde estés.</p>
+   
+   <p>Si estás buscando algo nuevo, estás en el lugar correcto. Nos esforzamos por ser originales e innovadores, ofreciendo a nuestros clientes lo que desean, poniendo sus deseos en el primer lugar de nuestra lista de prioridades.</p>
+         </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Devoluciones -->
+<div class="modal fade" id="devolucion" tabindex="-1" aria-labelledby="devolucion" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">POLÍTICA DE DEVOLUCIONES </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Gracias por comprar en JlcStore</p>
+   <p>Ofrecemos reembolso y/o cambio dentro de los primeros 24 horas de tu compra. Si han transcurrido 24 horas desde tu compra, no se te ofrecerá un reembolso y/o cambio de ningún tipo.</p>
+   <h5>Elegibilidad para reembolsos y cambios</h5>
+   <ul>
+    <li>Tu artículo debe estar sin usar y en las mismas condiciones en que lo recibió.</li>
+    <li>El artículo debe estar en el embalaje original.</li>
+    <li>Para completar tu devolución, requerimos un recibo o comprobante de compra.</li>
+    <li>Solo se pueden reembolsar los artículos de precio regular; los artículos de venta no se pueden reembolsar.</li>    
+   </ul>
+   
+   <h5>Cambios</h5>
+   <p>Solo reemplazamos los artículos si están defectuosos o dañados. Si necesitas cambiarlo por el mismo artículo, envíanos un mensaje a nuestro WhatsApp al 931993482 y envía tu artículo a nuestra tienda.</p>
+   
+   <h5>Bienes exentos</h5>
+   <p>Los siguientes bienes están exentos de reembolsos:</p>
+   <ul>
+    <li>Algunos artículos de salud y cuidado personal.</li>
+    <li>Alimentos perecibles.</li>
+   </ul>
+   
+   <h5>Reembolsos parciales</h5>
+   <li>Cualquier artículo que no se encuentre en su estado original, esté dañado o falte una parte por razones que no se debieron a nuestro error.</li>
+   <li>Cualquier artículo que se devuelva más de 24 horas después de la entrega.
+</li>
+   <li>Una vez que se reciba e inspeccione tu devolución, te enviaremos un mensaje por WhatsApp para notificarte que hemos recibido tu artículo devuelto. También te notificaremos la aprobación o el rechazo de tu reembolso.</li>
+   <li>Si es aprobado, entonces se procesará tu reembolso y se aplicará un crédito.
+</li>
+
+<h5>Envíos</h5>
+<li>Por favor, no devuelvas el producto al fabricante. Debe enviarse a la siguiente dirección jr. Gracilaso S/N. </li>
+<li>Por favor, nota que no podemos garantizar que recibiremos tu artículo devuelto.</li> 
+         </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Términos y condiciones -->
+<div class="modal fade" id="condiciones" tabindex="-1" aria-labelledby="condiciones" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">TÉRMINOS Y CONDICIONES</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       <p>Bienvenido a JlcStore. Estos términos y condiciones describen las reglas y regulaciones para el uso del sitio web JlcStore</p>
+   
+   <p>JlcStore se encuentra en jr. Garcilaso S/N. Paucapata, El Carmen.</p>
+   
+   <p>Al acceder a este sitio web, asumimos que aceptas estos términos y condiciones en su totalidad. No continúes usando el sitio web JlcStore si no aceptas todos los términos y condiciones establecidos en esta página.</p>
+   
+   <p>La siguiente terminología se aplica a estos Términos y Condiciones, Declaración de Privacidad y Aviso legal y cualquiera o todos los Acuerdos: el cliente, usted y su se refieren a usted, la persona que accede a este sitio web y acepta los términos y condiciones de la Compañía. La compañía, nosotros mismos, nosotros y nuestro, se refieren a nuestra compañía. Parte, partes o nosotros, se refiere en conjunto al cliente y a nosotros mismos, o al Cliente o a nosotros mismos.</p>
+   
+   <p>Todos los términos se refieren a la oferta, aceptación y consideración del pago necesario para efectuar el proceso de nuestra asistencia al Cliente de la manera más adecuada, ya sea mediante reuniones formales de una duración fija, o por cualquier otro medio, con el propósito expreso de conocer las necesidades del Cliente con respecto a la provisión de los servicios/productos declarados de la Compañía, de acuerdo con y sujeto a la ley vigente del Perú.</p>
+   
+   <p>Cualquier uso de la terminología anterior u otras palabras en singular, plural, mayúsculas y/o, él/ella o ellos, se consideran intercambiables y, por lo tanto, se refieren a lo mismo.</p>
+   
+   <h5>licencia</h5>
+   <p>A menos que se indique lo contrario, JlcStore y/o sus licenciatarios les pertenecen los derechos de propiedad intelectual de todo el material en JlcStore.</p>
+   
+   <p>no debes:</p>
+   <ul>
+    <li>Reproducir, duplicar o copiar material desde www.jlcstoreoficialsite.com.</li>
+    <li>Redistribuir contenido de JlcStore, a menos de que el contenido se haga específicamente para la redistribución.</li>
+   </ul>
+   
+   <h5>Aviso legal</h5>
+   <p>En la medida máxima permitida por la ley aplicable, excluimos todas las representaciones, garantías y condiciones relacionadas con nuestro sitio web y el uso de este sitio web (incluyendo, sin limitación, cualquier garantía implícita por la ley con respecto a la calidad satisfactoria, idoneidad para el propósito y/o el uso de cuidado y habilidad razonables).</p>
+   <p>Nada en este aviso legal:</p>
+   <ul>
+    <li>Limita o excluye nuestra o su responsabilidad por muerte o lesiones personales resultantes de negligencia.</li>
+    <li>Limita o excluye nuestra o su responsabilidad por fraude o tergiversación fraudulenta.</li>
+    <li>Limita cualquiera de nuestras o sus responsabilidades de cualquier manera que no esté permitida por la ley aplicable.
+</li>
+    <li>Excluye cualquiera de nuestras o sus responsabilidades que no pueden ser excluidas bajo la ley aplicable.</li>
+   </ul>
+   <p>Las limitaciones y exclusiones de responsabilidad establecidas en esta Sección y en otras partes de este aviso legal:</p>
+   <p>están sujetas al párrafo anterior; y rigen todas las responsabilidades que surjan bajo la exención de responsabilidad o en relación con el objeto de esta exención de responsabilidad, incluidas las responsabilidades que surjan en contrato, agravio (incluyendo negligencia) y por incumplimiento del deber legal.</p>
+   
+   <p>En la medida en que el sitio web y la información y los servicios en el sitio web se proporcionen de forma gratuita, no seremos responsables de ninguna pérdida o daño de ningún tipo.</p>
+         </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Políticas de privacidad -->
+<div class="modal fade" id="privacidad" tabindex="-1" aria-labelledby="privacidad" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">POLÍTICAS DE PRIVACIDAD</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <p>Bienvenido a JlcStore, una tienda virtual dedicada a la venta de productos para el hogar. Estos términos y condiciones se aplican a todas las compras realizadas en nuestra tienda virtual. Al hacer una compra, usted acepta estas políticas, términos y condiciones. Si no está de acuerdo con alguna de ellas, no podrá realizar una compra en nuestra tienda.</p>
+   <p>Nos reservamos el derecho de actualizar, modificar o cambiar estas políticas, términos y condiciones en cualquier momento y sin previo aviso. Es responsabilidad del usuario revisar periódicamente estos términos y condiciones para estar al tanto de cualquier cambio.</p>
+   
+   <h5>Información de la tienda</h5>
+   <p>JlcStore es propiedad de Julio Lanazca Cornejo, ubicado en jr. Garcilaso S/N,Paucapata, El carmen. Si necesita comunicarse con nosotros, puede hacerlo a través de nuestro WhatsApp.</p>
+   <p>Esta Política de Privacidad describe cómo se recopila, utiliza y comparte tu información personal cuando visitas o realizas una compra en JlcStore.</p>
+   
+   <h5>¿Qué información personal recopilamos? </h5>
+   <p>Cuando realizas  una compra a través del Sitio, recopilamos cierta información tuya, como tu nombre y el número de teléfono. Esto se denomina información del pedido.</p>
+   
+   <p>Al referirnos a información personal en esta Política de Privacidad, estamos hablando de la Información del Pedido.</p>
+   <p>Nos comprometemos a proteger la privacidad de nuestros clientes para obtener más información sobre cómo manejamos su información personal, consultenos por nuestro WhatsApp. </p>
+   <p>Finalmente, también podemos compartir tu Información Personal para cumplir con las leyes y regulaciones aplicables, para responder a una citación, una orden de registro u otras solicitudes legales de información que recibimos, o para proteger nuestros derechos.</p>
+   
+   <h5>Tus derechos</h5>
+   <p>Si eres un residente Peruano(a), tienes derecho a acceder a la información personal que tenemos sobre ti y a solicitar que tu información personal se corrija, actualice o elimine. Si deseas ejercer este derecho, por favor contáctanos.</p>
+   <p>Además, si eres un residente Peruano(a), notamos que estamos procesando tu información para cumplir con los contratos que podríamos tener contigo (por ejemplo, si realizas un pedido a través del Sitio), o de otra manera para perseguir nuestros intereses comerciales legítimos mencionados anteriormente.</p>
+   
+   <h5>Retención de datos</h5>
+   <p>Cuando realices un pedido a través del Sitio, mantendremos tu Información de Pedido para nuestros registros a menos que y hasta que nos solicites eliminar esta información.</p>
+   
+   <h5>Menores</h5>
+   <p>El Sitio no está destinado a personas menores de edad (14 años).</p>
+   
+   <h5>Cambios</h5>
+   <p>Podemos actualizar esta política de privacidad de vez en cuando para reflejar, por ejemplo, cambios en nuestras prácticas o por otras razones operativas, legales o reglamentarias.</p>
+   <p>Si tiene preguntas y/o necesitas más información, no dudes en ponerte en contacto con nosotros a través de nuestro WhatsApp.</p>
+   
+   <h5>Limitación de responsabilidad</h5>
+   <p>No nos hacemos responsables de ningún daño directo, indirecto, incidental, especial o consecuente que pueda resultar del uso o la imposibilidad de uso de nuestra tienda virtual.</p>
+   <p>No garantizamos que nuestra tienda virtual esté libre de errores, o que su acceso a ella sea ininterrumpido.</p>
+   <p>En ningún caso nuestra responsabilidad superará el precio de compra del producto en cuestión.</p>
+   
+   <h5>Precios y pagos</h5>
+   <p>Todos los precios que aparecen en nuestra tienda virtual están en S/. e incluyen el impuesto al valor agregado (IVA).</p>
+   <p>Aceptamos las siguientes formas de pago: yape y efectivo.</p>
+   <p>El pago se realizará en el momento de la compra y/o entrega del producto . Una vez que se haya realizado el pago, se le entregara y/o envíara un comprobante de pago al usuario mediante WhatsApp.</p>
+   
+   <h5>Envío y entrega</h5>
+   <p>Los productos se enviarán a la dirección proporcionada por el usuario. El costo de envío se calculará en función de la dirección de entrega y del peso del producto.</p>
+   <p>Hacemos todo lo posible para entregar los productos en el plazo indicado al momento de la compra, no nos hacemos responsables por los retrasos causados por la inclemencia del tiempo.</p>
+   <p>El usuario es responsable de proporcionar una dirección de entrega precisa y completa. Si el paquete es devuelto a nuestra tienda debido a una dirección incorrecta o incompleta, el usuario será responsable de los costos de reenvío.</p>
+   <h5>Propiedad intelectual</h5>
+   <p>Todo el contenido de nuestra tienda virtual, incluyendo imágenes, textos y diseños, son propiedad de JlcStore y están protegidos por las leyes de propiedad intelectual.</p>
+   <p>Queda prohibida la reproducción, distribución, exhibición, transmisión o explotación de cualquier contenido de nuestra tienda virtual sin nuestro permiso expreso por escrito.</p>
+   <p>Fecha de última actualización: 28/12/2023</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</section>  
+</div>
+
+ <script src="js/bootstrap.min.js"></script>
+ <script src="js/jquery-3.4.1.min.js"></script>
+ <script src="js/sweetalert2.min.js"></script>
+ <script src="js/carrito.js"></script>
+ <script src="js/pedido.js"></script>
+ <script src="stock.js"></script>
+ <script src="js/cards.js"></script>
+ <script src="js/filtro.js"></script>
+
+</body>
+</html>
