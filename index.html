@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en" class="h-100" data-bs-theme="auto">
+  <head><script src="../assets/js/color-modes.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>JlcStore</title>
+
+ <!-- SCRIPT -->
+ <script src="js/popper.min.js"></script>
+<script src="https://kit.fontawesome.com/766bfae005.js" crossorigin="anonymous"></script> 
+ <!-- CSS-->
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="css/sweetalert2.min.css">
+ 
+ <link rel="stylesheet" href="css/bootstrap.min.css">
+ <link rel="stylesheet" href="css/estilo.css">
+<!-- fin header -->
+ <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="search" fill="#ffffff" viewBox="0 0 16 16">
+    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+  </symbol></svg>
+  </head>
+  <body class="d-flex flex-column h-100">
+<header>
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
+    <div class="container-fluid">
+       <div class="">
+ <div class="m-4 mb-0 mt-0">
+     <img src="https://cdn-icons-png.flaticon.com/512/862/862072.png" height="20px" width="20px" alt="Logo"></div>
+       <h6><strong class="text-light">JlcStore</strong></h6>
+    </div>   
+    
+    <div class="border rounded-1 border-light-subtle">
+      <img src="https://siamangtec.files.wordpress.com/2022/08/tiendaonline-3.png" alt="CARRITO" width="40" height="40" type="button" data-bs-toggle="offcanvas" data-bs-target="#compras" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      </div>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+     
+      <span class=""><svg class="bi" width="25" height="25"><use xlink:href="#search"/></svg></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      
+      <form class="br ma" role="search">
+        <input class="form-control  text-center me-2" type="search" placeholder="BUSCAR..." aria-label="Search" style="font-weight: bold;" id="filterInput">
+      </form>
+    </div>
+    <div class="nav-scroller bg-light rounded-2 shadow-sm collapse navbar-collapse ma" id="navbarTogglerDemo02" >
+  <nav class="nav" aria-label="Secondary navigation">
+    <a class="nav-link text-dark fv" aria-current="page" href="#" data-filter="all">Todos</a>
+    <a class="nav-link text-dark fv" href="#" data-filter="abarrotes" >Abarrotes</a>
+      <a class="nav-link text-dark fv" href="#" data-filter="lacteos" >Lácteos</a>
+       <a class="nav-link text-dark fv" href="#" data-filter="conservas" >Conservas</a>
+         <a class="nav-link text-dark fv" href="#" data-filter="bebidas" >Bebidas</a>
+         <a class="nav-link text-dark fv" href="#" data-filter="frutas" >Frutas</a>
+            <a class="nav-link text-dark fv" href="#" data-filter="verduras" >Verduras</a>
+               <a class="nav-link text-dark fv" href="#" data-filter="carnes" >Carnes</a>
+                  <a class="nav-link text-dark fv" href="#" data-filter="higene" >Cuidado Personal</a>
+                    <a class="nav-link text-dark fv" href="#" data-filter="limpieza" >Limpieza</a> 
+  </nav>
+</div>
+    </div>
+  </nav>
+</header>
+
+
+ <!-- Compra -->
+<nav class="navbar bg-body-tertiary">
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="compras" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Productos en carrito</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body" id="carrito">
+        
+                                    <table id="lista-carrito" class= "table">
+       
+ <thead>
+                                            <tr>     
+                                                <th>Imagen</th>
+                                                <th>Nombre</th>
+                                                <th>Precio</th>
+                                                <th>Quitar</th>
+                                            </tr> 
+                                            </thead> 
+
+     <tbody></tbody> 
+     
+     </table>
+   <div class="d-grid gap-2">
+   <a href="#" id="vaciar-carrito" class="btn btn-outline-danger">Vaciar Carrito</a>
+   
+   <a href="#" id="procesar-pedido" class="btn btn-outline-success" >Enviar Compra</a>    
+   
+   <a href="#" data-bs-dismiss="offcanvas" class="btn btn-outline-warning">Seguir Comprando</a>    
+   </div>
+
+    </div>
+</nav>
+  <!-- Fin compra-->
+
+<!-- realizar compra-->
+<div class="modal fade" id="modalCompra" tabindex="-1" aria-labelledby="modalCompra" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalCenteredScrollableTitle">Formulario de compra</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+    <form id="procesar-pago" class="row g-3 needs-validation" novalidate>
+                     
+   <div class="form-group row">
+   <label for="cliente" class="col-12 col-md-2 col-form-label h2">Cliente:</label>
+   <div class="col-12 col-md-10">
+   <input type="text" class="form-control" id="cliente" placeholder="Ingresa tu nombre" required>
+   </div>
+   </div>
+                        
+   <div class="form-group row">
+   <label for="telefono" class="col-12 col-md-2 col-form-label h2">Teléfono:</label>
+   <div class="col-12 col-md-10">
+   <input type="tel" maxlength="9" pattern="[0-9]{9}" class="form-control" id="telefono" placeholder="Ingresa tu número de celular" required>
+    </div>
+    </div> 
+       
+      <div class="form-group row">
+      <label for="entrega" class="col-12 col-md-2 col-form-label h2"
+        >Entrega:</label>
+      <div class="col-12 col-md-10">
+      <select id="entrega" class="form-control" name="listaentrega">
+        <option selected disabled value="">Seleccionar</option>             
+        <option>Retiro en tienda</option>
+        <option>Delivery</option>
+      </select>                    
+       </div>
+      </div>
+
+  <div class="form-group row">
+   <label for="cliente" class="col-12 col-md-2 col-form-label h2">Fecha:</label>
+   <div class="col-12 col-md-10">
+   <input type="date" class="form-control" id="cliente" placeholder="Ingrese la fecha de entrega" required>
+   </div>
+   </div>
+
+    <div id="carrito" class="form-group table-responsive" >
+    <table class="form-group table" id="lista-compra" >
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Imagen</th>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Precio</th>
+                                        <th scope="col">Cantidad</th>
+                                        <th scope="col">SubTotal</th>
+                                        <th scope="col">Eliminar</th>
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+
+                                </tbody>                               
+                            </table>
+                        </div>
+      </form>
+      </div>
+      <div class="modal-footer">
+       
+         <div class="col-12">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="tc" required>
+      <label class="form-check-label" for="tc">
+        Acepto los <z class="form-check-label" for="tc" style="text-decoration: none;" data-bs-toggle="modal" data-bs-target="#devolucion">terminós y condiciones.</z> 
+      </label>
+      <div class="invalid-feedback">
+       Debe estar de acuerdo antes de enviar.
+      </div>
+    </div>
+  </div>
+                        
+                        <table class="mb-3 d-grid gap-2" >
+                          <tr>
+                                    <th scope="col" class="text-end">SUBTOTAL:</th>
+                                    <th scope="col">
+                                        <input id="subtotal" name="subtotal" class="h6 border-0" readonly style="background-color: white;"></input>
+                                    </th>
+                                    <!-- <th scope="col"></th> -->
+                                </tr>
+                                <tr>
+                                    <th scope="col" class="text-end">IGV:</th>
+                                    <th scope="col">
+                                 <input id="igv" name="igv" class="h6 border-0" readonly style="background-color: white;"></input>
+                                    </th>
+                                    <!-- <th scope="col"></th> -->
+                                </tr>
+                                <tr>
+                                    <th scope="col" class="text-end">TOTAL:</th>
+                                    <th scope="col">
+                                        <input id="total" name="monto" class="h6 border-0" readonly style="background-color: white;"></input>
+                                    </th>
+                                    <!-- <th scope="col"></th> -->
+                                </tr>
+                        </table>              
+                                             
+        <a href="index.html" type="button" class="btn btn-outline-info">Seguir comprando</a>
+        <a href="#" type="button" class="btn btn-outline-success" id="procesar-compra">Realizar compra</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Carrusel slider -->
+<main class="flex-shrink-0 mt-1">
+ <section class="mt-1">
+  <div class="container pt-5">
+   
+     <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+    <div class="carousel-indicators" id="idicat">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <!-- inner -->
+    <div class="carousel-inner" id="slide">
+     
+       <div class=" card align-bottom active text-center carousel-item">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVPvq0RQ0sDxYPi6Pedh6Vvk8loDnZjZAKwg&usqp=CAU" class="card-img w-100" height="130px" alt="">
+</div>
+
+ <div class=" card align-bottom text-center carousel-item">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVPvq0RQ0sDxYPi6Pedh6Vvk8loDnZjZAKwg&usqp=CAU" class="card-img w-100" height="130px" alt="">
+</div>
+
+ <div class="card align-bottom text-center carousel-item">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVPvq0RQ0sDxYPi6Pedh6Vvk8loDnZjZAKwg&usqp=CAU" class="card-img w-100" height="130px" alt="">
+</div>
+
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icons" id="carousel-control-prev-icono" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icons" id="carousel-control-next-icono" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+   
+  </div>
+  </section>
+  
+  <!-- Catálogo -->       
+    <div class="catalogo" id="contenedor-productos">
+    </div><!-- fin catalogo -->
+</main>
+
+
+
+<section>
+ 
+<!-- Devoluciones -->
+<div class="modal fade" id="devolucion" tabindex="-1" aria-labelledby="devolucion" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">POLÍTICA DE DEVOLUCIONES </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Gracias por comprar en JlcStore</p>
+   <p>Ofrecemos reembolso y/o cambio dentro de los primeros 24 horas de tu compra. Si han transcurrido 24 horas desde tu compra, no se te ofrecerá un reembolso y/o cambio de ningún tipo.</p>
+   <h5>Elegibilidad para reembolsos y cambios</h5>
+   <ul>
+    <li>Tu artículo debe estar sin usar y en las mismas condiciones en que lo recibió.</li>
+    <li>El artículo debe estar en el embalaje original.</li>
+    <li>Para completar tu devolución, requerimos un recibo o comprobante de compra.</li>
+    <li>Solo se pueden reembolsar los artículos de precio regular; los artículos de venta no se pueden reembolsar.</li>    
+   </ul>
+   
+   <h5>Cambios</h5>
+   <p>Solo reemplazamos los artículos si están defectuosos o dañados. Si necesitas cambiarlo por el mismo artículo, envíanos un mensaje a nuestro WhatsApp al 931993482 y envía tu artículo a nuestra tienda en el que lo obtuviste.</p>
+   
+   <h5>Bienes exentos</h5>
+   <p>Los siguientes bienes están exentos de reembolsos:</p>
+   <ul>
+    <li>Algunos artículos de salud y cuidado personal.</li>
+    <li>productos de corta duración.</li>
+   </ul>
+   
+   <h5>Reembolsos parciales</h5>
+   <li>Cualquier artículo que no se encuentre en su estado original, esté dañado o falte una parte por razones que no se debieron a nuestro error.</li>
+   <li>Cualquier artículo que se devuelva más de 24 horas después de la entrega.
+</li>
+   <li>Una vez que se reciba e inspeccione tu devolución, te enviaremos un mensaje por WhatsApp para notificarte que hemos recibido tu artículo devuelto. También te notificaremos la aprobación o el rechazo de tu reembolso.</li>
+   <li>Si es aprobado, entonces se procesará tu reembolso y se aplicará un crédito.
+</li>
+
+<h5>Envíos</h5>
+<li>Por favor, no devuelvas el producto al fabricante. Debe enviarse a la siguiente dirección jr. Gracioso S/N. </li>
+<li>Por favor, nota que no podemos garantizar que recibiremos tu artículo devuelto.</li> 
+         </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<footer class="footer mt-auto py-3 bg-dark text-light">
+  <div class="container">
+ <footer class="py-1 my-1">
+    <ul class="nav justify-content-center">
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-light"><h6>Zona de covertura</h6></a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-light"><h6>Cambios y devoluciones</h6></a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-light"><h6>Política de privacidad</h6></a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-light"><h6>Términos y condiciones</h6></a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-light"><h6>Acerca de nosotros</h6></a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-light"><h6>Contactanos</h6></a></li>
+    </ul>
+    <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center pt-4 mt-4 border-top">
+     <ul class="list-unstyled d-flex">       
+        <li class="ms-3"><a class="link-body-emphasis" href="#" data-bs-toggle="modal" data-bs-target="#tutorials"><img class="bi"src="https://videonot.es/wp-content/uploads/2021/11/clicdata_support-help-center-header.png" alt="AYUDA"  width="38" height="38"></a></li>
+        
+        <li class="ms-3"><a class="link-body-emphasis" href="http://api.whatsapp.com/send?phone=51931993482&text= "><img class="bi"src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png" alt="WhatsApp"  width="38" height="38"></a></li>
+        
+        <li class="ms-3 me-3"><a class="link-body-emphasis" href="#"><img class="bi"src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/220px-2021_Facebook_icon.svg.png" alt="Facebook"  width="38" height="38"></a></li>        
+      </ul>
+     
+      <p class="text-center">&copy; 2020-2024 JlcStore, Todos los derechos reservados.</p>      
+    </div>
+    
+  </footer>
+  </div>
+</footer>
+
+ <script src="js/bootstrap.min.js"></script>
+ <script src="js/jquery-3.4.1.min.js"></script>
+ <script src="js/sweetalert2.min.js"></script>
+ <script src="js/carrito.js"></script>
+ <script src="js/pedido.js"></script>
+ <script src="stock.js"></script>
+ <script src="js/cards.js"></script>
+ <script src="js/filtro.js"></script>
+<script src="js/compra.js"></script>
+<script src="js/whatsApp.js"></script>
+
+
+    </body>
+</html>
